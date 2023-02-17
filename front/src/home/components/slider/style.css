@@ -1,0 +1,11 @@
+.slider-img{
+    width: 100%;
+    height: 56vh;
+}
+.slider-img .carousel-item img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover !important;
+    object-position: bottom !important;
+}
+

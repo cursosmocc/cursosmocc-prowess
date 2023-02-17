@@ -1,0 +1,78 @@
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2a804f;
+  font-family: "Gagalin", sans-serif;
+  text-align: center;
+}
+
+.imagen-contenido-curso {
+  position: relative;
+  background-color: #3b8479;
+  border-radius: 10px;
+}
+
+.flip-card {
+  padding: 5px;
+  height: 250px;
+  perspective: 1000px;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  flex-direction: unset;
+  justify-content: unset;
+}
+
+.flip-card-back {
+  background: linear-gradient(
+    120deg,
+    rgb(59, 133, 122) 30%,
+    rgb(61, 134, 123) 88%,
+    rgb(67, 145, 133) 40%,
+    rgb(74, 160, 147) 78%
+  );
+  color: white;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+  padding: 1rem 1rem 0 1rem;
+  text-align: justify;
+}
+.flip-card-back::-webkit-scrollbar {
+  display: none;
+}

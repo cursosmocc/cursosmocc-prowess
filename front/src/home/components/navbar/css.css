@@ -1,0 +1,114 @@
+.logo {
+  max-width: 195px;
+  min-width: 195px;
+}
+
+.logo2 {
+  max-width: 500px;
+  min-width: 200px;
+}
+
+.div1 {
+  text-align: center;
+}
+
+.bgnavbar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  z-index: 1030;
+  background-color: #bfe0c7;
+  font-size: large;
+}
+
+.bgnavbar2 {
+  width: 100%;
+  z-index: 1031;
+  background-color: #4d6066;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+.dropdown-menu[data-bs-popper] {
+  left: -110px;
+}
+
+.redesItems {
+  flex-direction: row;
+}
+
+.navbar-nav.bgnavbar {
+  flex-direction: column;
+}
+
+.nav-link {
+  color: white;
+}
+
+.line {
+  display: none;
+  width: 85%;
+  border-bottom: 2px solid rgb(80, 80, 80);
+  margin: auto;
+  transition: 0.4s;
+}
+
+ul li a:hover > .line {
+  width: 100%;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  margin: auto;
+}
+
+.line::after {
+  content: "";
+  display: block;
+  opacity: 0;
+  width: 85%;
+  border-bottom: 2px solid rgb(80, 80, 80);
+  margin: auto;
+  transition: 0.4s;
+}
+
+ul li a:hover {
+  color: #000 !important;
+}
+
+ul li a:hover > .line::after {
+  opacity: 1;
+  width: 100%;
+  transform: translateY(-35px);
+  border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.help_icon::after {
+  display: none;
+}
+
+.arrow-down {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-bottom: 3px;
+  border: 2px solid #666565;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  .justify-content-end {
+    justify-content: center !important;
+  }
+
+  .nav__banner {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .line {
+    display: block;
+  }
+}

@@ -1,0 +1,139 @@
+.servicios {
+  background: -webkit-linear-gradient(
+      top,
+      #d9d9d9 0%,
+      #ffffff 10%,
+      #dbdbdb 100%
+    )
+    repeat scroll 0 0;
+}
+
+/* ---- GENERALES ---- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--cblanco);
+  font-family: sans-serif;
+}
+
+:root {
+  --cfondo: rgb(207, 211, 212);
+  --cfondoForm1: rgba(1, 1, 1, 0.39);
+  --cfondoForm2: rgb(129, 193, 202);
+  --cnegro: black;
+  --ctexto: rgb(0, 0, 0);
+  --ctextoDark: #3b8479;
+  --cblanco: white;
+  --error: rgb(184, 31, 31);
+}
+
+/* ---- FORMULARIO ---- */
+.contenedor {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-form {
+  width: 50%;
+  height: 100%;
+}
+
+.image-form img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+.form {
+  max-width: 450px;
+  padding: 20px;
+  margin: auto;
+}
+
+.form-titulo {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 3px;
+}
+
+.form-boton button {
+  background: var(--cnegro);
+  color: var(--cblanco);
+  padding: 10px 30px;
+  font-size: 18px;
+  border: none;
+}
+
+.form-boton button:hover {
+  background: var(--ctextoDark);
+  transition: 0.5s;
+}
+
+.mensajeError {
+  color: var(--error);
+  margin-top: 0px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.mensajeCorrecto {
+  text-align: center;
+  font-weight: bold;
+}
+
+.title-curso {
+  font-size: 50px;
+  font-weight: bold;
+  color: #3b8479;
+  text-align: center;
+  font-family: "Gagalin", sans-serif;
+}
+
+.descripcion-curso {
+  font-size: 15px;
+  color: #3b8479;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: lighter;
+}
+
+@media (max-width: 992px) {
+  .image-form {
+    width: 100%;
+  }
+}
+
+/*
+.form-input {
+  margin-bottom: 30px;
+}
+
+.form-input label {
+  display: block;
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--ctexto);
+}
+
+.form-input input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  border-bottom: 1px solid var(--ctexto);
+}
+
+.form-input input:focus + label {
+  font-weight: bold;
+  color: var(--cnegro);
+}
+*/

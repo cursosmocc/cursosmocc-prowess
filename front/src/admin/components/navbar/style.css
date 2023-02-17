@@ -1,0 +1,17 @@
+.nav_bar{
+    background-color: #70B38D;
+}
+.logo-admin {
+    max-width: 150px;
+    min-width: 100px;
+    
+}
+.logout {
+    background: none;
+    border: none;
+}
+.admin {
+    position: absolute;
+    right: 10px;
+    min-width: 10px;
+}
