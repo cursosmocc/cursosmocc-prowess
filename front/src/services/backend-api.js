@@ -43,7 +43,7 @@ export const getCatagories = async () => {
 
 export const postUser = async (user) => {
   try {
-    const response = await axios.post(`${url}/user`, user);
+    const response = await axios.post(`${url}/users`, user);
     return response.data;
   } catch (error) {
     console.log(error);

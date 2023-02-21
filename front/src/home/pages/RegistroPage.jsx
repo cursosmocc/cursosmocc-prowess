@@ -51,10 +51,20 @@ function RegistroPage() {
   };
 
   const onSubmit = async (data) => {
-    const response = await postUser(data);
-    if (response.data?.exception) return;
+    const user = {
+      username: data.username,
+      firstname: data.firstname,
+      lastname: data.lastname,
+      email: data.email,
+      city: data.city,
+      country: data.country,
+      password: data.password,
+    };
+    const response = await postUser(user);
 
-    navigate("/register/success");
+    console.log(response);
+    if (response.data?.exception) return;
+    //navigate("/register/success");
   };
 
   return (
