@@ -1,9 +1,24 @@
 import Input from "./Input";
 import RadioInput from "./RadioInput";
 import SelectInput from "./SelectInput";
-
+import { useEffect, useState } from "react";
+import { getCourses } from "../../../services/backend-api";
 const FormPart2 = (props) => {
   const { cities, states, handlePrev, register, errors, getCities } = props;
+  const [courses, setCourses] = useState([]);
+
+  const _getCourses = async () => {
+    if (localStorage.getItem("courses"))
+      setCourses([JSON.parse(localStorage.getItem("courses"))]);
+    else {
+      const _courses = await getCourses();
+      setCourses(_courses);
+    }
+  };
+
+  useEffect(() => {
+    _getCourses();
+  }, []);
 
   return (
     <>
@@ -59,10 +74,7 @@ const FormPart2 = (props) => {
       <SelectInput
         register={register}
         name={"course"}
-        options={[
-          { id: "A", name: "Categoria A" },
-          { id: "B", name: "Categoria B" },
-        ]}
+        options={courses}
         title={"Cursos"}
         errors={errors}
       />
@@ -110,9 +122,6 @@ const FormPart2 = (props) => {
           register={register}
           errors={errors}
         />
-        <a href="/terminos" target="_blank" rel="noreferrer" className="ms-1">
-          Términos y Condiciones
-        </a>
       </div>
       <div className="d-flex justify-content-between">
         <div className="form-boton ">

@@ -12,6 +12,10 @@ const Contenido = ({ curso }) => {
       setUrlImg(`${curso.overviewfiles[0].fileurl}`.replace("/webservice", ""));
   };
 
+  const setCourse = () => {
+    localStorage.setItem("courses", JSON.stringify(curso));
+  };
+
   useEffect(() => {
     _getImg();
   });
@@ -30,6 +34,7 @@ const Contenido = ({ curso }) => {
             className="nav-link"
             target="_blank"
             rel="noreferrer"
+            onClick={setCourse}
           >
             <button className="btn btn-success button mt-2">
               INSCRÍBETE YA

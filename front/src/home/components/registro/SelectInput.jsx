@@ -14,7 +14,9 @@ const SelectInput = (props) => {
         {options &&
           options.map((option, index) => (
             <option key={index} value={option.iso2}>
-              {option.name}
+              {option.name
+                ? option?.name.toUpperCase()
+                : option?.fullname.toUpperCase()}
             </option>
           ))}
       </select>

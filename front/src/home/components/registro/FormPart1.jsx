@@ -2,27 +2,27 @@ import Input from "./Input";
 import SelectInput from "./SelectInput";
 
 const FormPart1 = (props) => {
-  const { handleNext, countries, getStates, register, errors, handleSubmit } =
-    props;
+  const {
+    handleNext,
+    countries,
+    getStates,
+    register,
+    errors,
+    handleSubmit,
+    correctPassword,
+    correctIdNumber,
+  } = props;
 
   return (
     <>
       <p className="form-titulo">1/2 Regístrate</p>
-      <Input
-        register={register}
-        type={"text"}
-        placeholder={"Nombre de Usuario"}
-        name={"username"}
-        errors={errors}
-        validation={{ required: "Este campo es requerido", minLength: 6 }}
-      />
+
       <Input
         register={register}
         type={"text"}
         placeholder={"Nombres"}
         name={"firstname"}
         errors={errors}
-        validation={{ required: "Este campo es requerido", minLength: 6 }}
       />
       <Input
         register={register}
@@ -30,7 +30,13 @@ const FormPart1 = (props) => {
         placeholder={"Apellidos"}
         name={"lastname"}
         errors={errors}
-        validation={{ required: "Este campo es requerido", minLength: 6 }}
+      />
+      <Input
+        register={register}
+        type={"text"}
+        placeholder={"Nombre de Usuario"}
+        name={"username"}
+        errors={errors}
       />
       <Input
         register={register}
@@ -38,7 +44,6 @@ const FormPart1 = (props) => {
         placeholder={"Correo Electrónico"}
         name={"email"}
         errors={errors}
-        validation={{ required: "Este campo es requerido", minLength: 6 }}
       />
       <Input
         register={register}
@@ -46,15 +51,18 @@ const FormPart1 = (props) => {
         placeholder={"Cédula"}
         name={"idnumber"}
         errors={errors}
-        validation={{ required: "Este campo es requerido", minLength: 6 }}
       />
+      {correctIdNumber || (
+        <span className="mensajeError">
+          <p>Número de cédula no válido</p>
+        </span>
+      )}
       <Input
         register={register}
-        type={"password"}
+        type={"text"}
         placeholder={"Contraseña"}
         name={"password"}
         errors={errors}
-        validation={{ required: "Este campo es requerido", minLength: 6 }}
       />
       <Input
         register={register}
@@ -62,8 +70,12 @@ const FormPart1 = (props) => {
         placeholder={"Repetir Contraseña"}
         name={"password2"}
         errors={errors}
-        validation={{ required: "Este campo es requerido", minLength: 6 }}
       />
+      {correctPassword || (
+        <span className="mensajeError">
+          <p>Las Contraseñas no coinciden</p>
+        </span>
+      )}
 
       <SelectInput
         register={register}
@@ -73,7 +85,6 @@ const FormPart1 = (props) => {
         getOptions={getStates}
         errors={errors}
       />
-
       <div className="form-boton d-flex justify-content-end ">
         <button type="button" onClick={handleSubmit(handleNext)}>
           Siguiente

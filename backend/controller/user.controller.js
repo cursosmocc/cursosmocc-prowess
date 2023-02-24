@@ -15,3 +15,25 @@ export const createUser = async (req, res) => {
     return res.status(400).json(error);
   }
 };
+
+export const signupUser = async (req, res) => {
+  try {
+    const _user = req.body;
+    const client = await moodleConnect;
+    const user = await client.call({
+      wsfunction: "auth_email_signup_user",
+      args: {
+        username: _user.username,
+        password: _user.password,
+        firstname: _user.firstname,
+        lastname: _user.lastname,
+        email: _user.email,
+        city: _user.city,
+        country: _user.country,
+      },
+    });
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};

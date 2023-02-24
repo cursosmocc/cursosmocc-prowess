@@ -1,66 +1,187 @@
-.titulo-footer {
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    padding-left: 67%;
-    font-size: 90%;
-    margin: 10px;
-
+footer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 25px 100px;
+  background: #111;
+  display: flex;
+  flex-wrap: wrap;
+}
+footer .footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+footer .footer-container .sec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer .footer-container .sec ul {
+  padding-left: unset;
 }
 
-.texto-footer{
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    padding-left: 67%;
-    font-size: 90%;
-    margin: 10px;
+footer .footer-container .sec.aboutUs {
+  width: 40%;
+}
+footer .footer-container h2 {
+  position: relative;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+footer .footer-container h2:before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #3b8479;
+}
+footer p {
+  color: #999;
+}
+footer .footer-container .sec.aboutUs ul {
+  color: #999;
+}
+.sci {
+  margin-top: 20px;
+  display: flex;
+}
+.sci li {
+  list-style: none;
+}
+.sci li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.sci li a:hover {
+  background: #3b8479;
+}
+.sci li a .icon {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+}
+.sci li a .icon ion-icon {
+  padding-top: 8px;
+}
+.quickLinks {
+  position: relative;
+  width: 25%;
+}
+.quickLinks ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.quickLinks ul li {
+  list-style: none;
+}
+.quickLinks ul li a {
+  color: #999;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
 }
 
-
-.link-footer{
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 90%;
-}
-.link-footer:hover{
-    color: rgb(54, 169, 189);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 90%;
+.quickLinks ul li a:hover {
+  color: #3b8479 !important;
 }
 
-.bg-footer {
-    background-color: rgb(32, 31, 31);
+.contactFooter {
+  width: calc(35% - 60px);
+  margin-right: 0 !important;
+}
+.contactFooter .info {
+  position: relative;
+}
+
+.contactFooter .info li {
+  display: flex;
+  margin-bottom: 16px;
+}
+.contactFooter .info li span:nth-child(1) {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.contactFooter .info li a {
+  text-decoration: none;
+  color: #999;
+}
+.contactFooter .info li a:hover {
+  color: #3b8479 !important;
+}
+.copyrighText {
+  width: 100%;
+  background: #181818;
+  padding: 8px 100px;
+  text-align: center;
+}
+.copyrighText p {
+  color: #999;
+}
+
+@media (max-width: 1700px) {
+  footer h2 {
+    font-size: x-large;
+  }
+}
+
+@media (max-width: 1100px) {
+  footer .footer-container {
+    flex-direction: column;
+  }
+
+  footer .footer-container .sec {
+    text-align: center;
+    width: 100%;
+  }
+  footer .footer-container .sec ul li a {
+    margin: 2px;
+  }
+  footer .footer-container .sec.aboutUs {
+    width: 100%;
+  }
+  footer .footer-container .sec.aboutUs ul {
+    margin-top: 0;
+  }
+  .contactFooter .info {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    z-index: 1030;
-    font-size: large;
-}
-
-.fot-link {
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.fot-link:hover {
-    color: hsl(171, 38%, 37%);
-}
-
-.derechos-footer{
-    background-color: black;
-}
-.texto-derechos{
-    font-size: small;
-    display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .contactFooter .info li {
+    margin-bottom: 8px;
+  }
+  .contactFooter .info li p {
+    margin-bottom: 0px;
+  }
 }
-.iconos{
-    display: inline;
-    position: relative;
-    left: 65.2%;
-}
-.ul{
-    display: inline;
-}
-.nav-item{
-    display: inline-block;
+
+@media (max-width: 600px) {
+  footer .footer-container h2:before {
+    content: "";
+    position: absolute;
+    left: calc(50% - 24px);
+    width: 50px;
+    height: 2px;
+    background: #3b8479;
+  }
 }

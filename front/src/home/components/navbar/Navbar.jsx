@@ -2,6 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./css.css";
 export const Navbar = () => {
+  const clearLocalStorage = () => {
+    localStorage.clear();
+  };
+
   return (
     <>
       <div className="bgnavbar nav__banner ">
@@ -83,6 +87,8 @@ export const Navbar = () => {
                   style={{ color: " #4D6066" }}
                   to="/register"
                   className="nav-link"
+                  target={"_blank"}
+                  onClick={clearLocalStorage}
                 >
                   Inscripciones
                   <div className="line"></div>

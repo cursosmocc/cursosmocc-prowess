@@ -6,6 +6,8 @@ import { getCiudad, getPais, getProvincia } from "../../services/getPais";
 import { postUser } from "../../services/backend-api";
 import FormPart1 from "../components/registro/FormPart1";
 import FormPart2 from "../components/registro/FormPart2";
+import { validarCedula } from "../helpers/getValidation";
+import ModalError from "../components/registro/ModalError";
 
 function RegistroPage() {
   const [page, setPage] = useState(1);
@@ -15,6 +17,10 @@ function RegistroPage() {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
   const [country, setCountry] = useState("");
+  const [success, setSuccess] = useState(true);
+  const [warnings, setWarnings] = useState([]);
+  const [correctPassword, setCorrectPassword] = useState(true);
+  const [correctIdNumber, setCorrectIdNumber] = useState(true);
 
   const {
     register,
@@ -42,8 +48,15 @@ function RegistroPage() {
     getCountries();
   }, []);
 
-  const handleNext = () => {
-    setPage((prevPage) => prevPage + 1);
+  const handleNext = ({ password, password2, idnumber }) => {
+    if (password === password2 && validarCedula(idnumber)) {
+      setCorrectPassword(true);
+      setCorrectIdNumber(true);
+      setPage((prevPage) => prevPage + 1);
+    } else {
+      setCorrectPassword(false);
+      setCorrectIdNumber(false);
+    }
   };
 
   const handlePrev = () => {
@@ -62,9 +75,11 @@ function RegistroPage() {
     };
     const response = await postUser(user);
 
-    console.log(response);
-    if (response.data?.exception) return;
-    //navigate("/register/success");
+    if (response.success) navigate("/register/success");
+    else {
+      setSuccess(false);
+      setWarnings(response.warnings);
+    }
   };
 
   return (
@@ -72,6 +87,7 @@ function RegistroPage() {
       <div className="contenedor flex-column flex-lg-row ">
         <div className="col-12 col-lg-6 image-form w-lg-100">
           <img
+            className="img-fluid"
             src="https://res.cloudinary.com/dena7lqj3/image/upload/v1670622658/modulomocc/home/inscrip.jpg"
             alt="inscripcion"
           />
@@ -86,21 +102,28 @@ function RegistroPage() {
               <FormPart1
                 register={register}
                 countries={countries}
-                handleNext={handleNext}
+                handleNext={handleSubmit(handleNext)}
                 getStates={getStates}
                 errors={errors}
                 handleSubmit={handleSubmit}
+                correctPassword={correctPassword}
+                correctIdNumber={correctIdNumber}
               />
             )}
             {page === 2 && (
-              <FormPart2
-                getCities={getCities}
-                cities={cities}
-                states={states}
-                handlePrev={handlePrev}
-                register={register}
-                errors={errors}
-              />
+              <>
+                {success || (
+                  <ModalError warnings={warnings} setSuccess={setSuccess} />
+                )}
+                <FormPart2
+                  getCities={getCities}
+                  cities={cities}
+                  states={states}
+                  handlePrev={handlePrev}
+                  register={register}
+                  errors={errors}
+                />
+              </>
             )}
           </form>
         </div>
