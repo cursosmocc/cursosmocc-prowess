@@ -1,5 +1,6 @@
 import axios from "axios";
 const url = "http://localhost:3012/mocc";
+//const url = "https://cursosmocc-backend.onrender.com/mocc";
 
 export const getCourses = async () => {
   try {
@@ -48,5 +49,25 @@ export const postUser = async (user) => {
   } catch (error) {
     console.log(error);
     return { message: "Error al crear el usuario" };
+  }
+};
+
+export const getUser = async (username) => {
+  try {
+    const response = await axios.get(`${url}/users/${username}`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return { message: "Error al obtener el usuario" };
+  }
+};
+
+export const postEnrol = async (enrol) => {
+  try {
+    const response = await axios.post(`${url}/courses/enrol`, enrol);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return { message: "Error al matricular el usuario" };
   }
 };

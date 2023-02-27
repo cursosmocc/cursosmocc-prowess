@@ -3,11 +3,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { getCiudad, getPais, getProvincia } from "../../services/getPais";
-import { postUser } from "../../services/backend-api";
+import { getUser, postEnrol, postUser } from "../../services/backend-api";
 import FormPart1 from "../components/registro/FormPart1";
 import FormPart2 from "../components/registro/FormPart2";
 import { validarCedula } from "../helpers/getValidation";
 import ModalError from "../components/registro/ModalError";
+import Loader from "../components/registro/Loader";
 
 function RegistroPage() {
   const [page, setPage] = useState(1);
@@ -21,6 +22,7 @@ function RegistroPage() {
   const [warnings, setWarnings] = useState([]);
   const [correctPassword, setCorrectPassword] = useState(true);
   const [correctIdNumber, setCorrectIdNumber] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -64,26 +66,52 @@ function RegistroPage() {
   };
 
   const onSubmit = async (data) => {
-    const user = {
-      username: data.username,
-      firstname: data.firstname,
-      lastname: data.lastname,
-      email: data.email,
-      city: data.city,
-      country: data.country,
-      password: data.password,
-    };
-    const response = await postUser(user);
+    setLoading(true);
+    const response = await postUser(data);
 
-    if (response.success) navigate("/register/success");
-    else {
+    if (!response.success) {
+      setLoading(false);
       setSuccess(false);
       setWarnings(response.warnings);
+      return;
     }
+
+    await enrolUser(data);
+  };
+
+  const enrolUser = async (data) => {
+    setLoading(true);
+    
+    const user = await getUser(data.username);
+
+    const enrolled = await postEnrol({
+      userid: user?.users[0]?.id,
+      courseid: data.course,
+    });
+
+    if (enrolled.data) {
+      setSuccess(false);
+      setLoading(false);
+      setWarnings([
+        { message: "No se pudo inscribir al curso, intenla nuevamente" },
+      ]);
+      return;
+    }
+
+    navigate("/register/success");
   };
 
   return (
     <>
+      {loading && <Loader />}
+      {success || (
+        <ModalError
+          warnings={warnings}
+          setSuccess={setSuccess}
+          handleSubmit={handleSubmit}
+          enrolUser={enrolUser}
+        />
+      )}
       <div className="contenedor flex-column flex-lg-row ">
         <div className="col-12 col-lg-6 image-form w-lg-100">
           <img
@@ -111,19 +139,14 @@ function RegistroPage() {
               />
             )}
             {page === 2 && (
-              <>
-                {success || (
-                  <ModalError warnings={warnings} setSuccess={setSuccess} />
-                )}
-                <FormPart2
-                  getCities={getCities}
-                  cities={cities}
-                  states={states}
-                  handlePrev={handlePrev}
-                  register={register}
-                  errors={errors}
-                />
-              </>
+              <FormPart2
+                getCities={getCities}
+                cities={cities}
+                states={states}
+                handlePrev={handlePrev}
+                register={register}
+                errors={errors}
+              />
             )}
           </form>
         </div>

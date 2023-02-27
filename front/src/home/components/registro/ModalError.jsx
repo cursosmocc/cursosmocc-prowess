@@ -15,7 +15,12 @@ const style = {
   p: 4,
 };
 
-export default function ModalError({ warnings, setSuccess }) {
+export default function ModalError({
+  warnings,
+  setSuccess,
+  handleSubmit,
+  enrolUser,
+}) {
   const [open, setOpen] = useState(true);
 
   const handleClose = () => {
@@ -50,6 +55,16 @@ export default function ModalError({ warnings, setSuccess }) {
               )}
             </Typography>
           ))}
+          <hr />
+          <Typography sx={{ mt: 2, color: "blue" }}>
+            Conozco los riesgos y deseo continuar
+          </Typography>
+          <button
+            onClick={handleSubmit(enrolUser)}
+            className="btn btn-secondary mt-3"
+          >
+            <Typography>Registrar igualmente</Typography>
+          </button>
         </Box>
       </Modal>
     </div>

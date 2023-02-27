@@ -59,7 +59,7 @@ const FormPart1 = (props) => {
       )}
       <Input
         register={register}
-        type={"text"}
+        type={"password"}
         placeholder={"Contraseña"}
         name={"password"}
         errors={errors}
