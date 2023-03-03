@@ -10,10 +10,7 @@ function Footer() {
           <div className="sec aboutUs">
             <h2>ACERCA DE NOSOTROS</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Veritatis, nihil inventore fuga eum sequi quo quos reprehenderit,
-              dicta incidunt nulla laborum amet cupiditate debitis doloremque.
-              Nostrum ut enim maxime voluptates?
+              Prowess Cursos Mocc se dedica a impartir cursos Generales y cursos Personalizos para emprendedores y público en general.
             </p>
             <ul className="sci">
               <li>
@@ -81,7 +78,7 @@ function Footer() {
               <ButtonOptionMenu name="FAQ" href="" />
               <ButtonOptionMenu name="Privacidad" href="" />
               <ButtonOptionMenu name="Ayuda" href="" />
-              <ButtonOptionMenu name="Términos y Condiciones" href="" />
+              <ButtonOptionMenu name="Términos y Condiciones" href="/terminos" />
             </ul>
           </div>
 
@@ -95,25 +92,30 @@ function Footer() {
                     <ion-icon name="navigate-circle-sharp"></ion-icon>
                   </span>
                 }
-                name="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+                name="Ing. Luis Enrique Simbaña Ph.D"
               />
               <li>
                 <span>
                   <ion-icon name="call-sharp"></ion-icon>
                 </span>
-                <p>
-                  <a href="tel:09814523678">098 145 23678</a>
+                <p> WHATSAPP: <br></br>
+                  <a href="tel:098 160 2933">(Click aquí ) Para envíarnos un mensaje de WhatsApp +593 98 160 2933
+                  </a>
                   <br />
-                  <a href="tel:09814523678">098 145 23678</a>
+                  <a href="tel:(02) 356 4427">(02) 356 4427</a>
                 </p>
               </li>
               <li>
                 <span>
                   <ion-icon name="mail-sharp"></ion-icon>
                 </span>
-                <p>
-                  <a href="maito:dulcementepasteles@gmail.com">
-                    prowesscursosmooc@gmail.com
+                <p> CORREO: <br></br>
+                  <a href="mailto:prowesscursosmooc@gmail.com">
+                  (Clik aquí ) Para envíarnos un mensaje de correo a prowesscursosmooc@gmail.com
+                  </a>
+                  <br></br>
+                  <a href="mailto:lesimbania@espe.edu.ec">
+                  (Clik aquí ) Para envíarnos un mensaje de correo a lesimbania@espe.edu.ec
                   </a>
                 </p>
               </li>
