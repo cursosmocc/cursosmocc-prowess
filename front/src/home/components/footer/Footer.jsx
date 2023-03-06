@@ -10,7 +10,9 @@ function Footer() {
           <div className="sec aboutUs">
             <h2>ACERCA DE NOSOTROS</h2>
             <p>
-              Prowess Cursos Mocc se dedica a impartir cursos Generales y cursos Personalizos para emprendedores y público en general.
+            Módulos cursos MOOC ofrece cursos en línea, abiertos y gratuitos a los emprendedores y 
+            usuarios en general, que tienen como objetivo compartir y difundir conocimiento a partir de los material
+            realizado por docentes especializado de la Universidad de las Fuerzas Armadas ESPE.
             </p>
             <ul className="sci">
               <li>
