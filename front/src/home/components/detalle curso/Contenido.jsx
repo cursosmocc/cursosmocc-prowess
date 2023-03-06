@@ -24,10 +24,10 @@ const Contenido = ({ curso }) => {
     <div className="row" id="principal">
       <div className="col-12 col-lg-6 p-3">
         <h1 className="title-nombre"> CURSO DE {curso.fullname}</h1>
-        <h4 align="left" className="text-modalidad">
-          Modalidad del Curso: {curso?.modalidad}
+        <h4 className="text-modalidad">
+          Detalle del curso {curso?.modalidad}
         </h4>
-        <p dangerouslySetInnerHTML={{ __html: curso?.summary }}></p>
+        <p className="detalle_cursos" dangerouslySetInnerHTML={{ __html: curso?.summary }}></p>
         <div className="">
           <NavLink
             to={`/register`}

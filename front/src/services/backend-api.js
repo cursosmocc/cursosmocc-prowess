@@ -1,6 +1,6 @@
 import axios from "axios";
-const url = "http://localhost:3012/mocc";
-//const url = "https://cursosmocc-backend.onrender.com/mocc";
+//const url = "http://localhost:3012/mocc";
+const url = "https://cursosmocc-backend.onrender.com/mocc";
 
 export const getCourses = async () => {
   try {
