@@ -106,11 +106,45 @@ body {
   font-weight: lighter;
 }
 
+
+.registro-exitoso-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.checkmark-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.titulo-registro-exitoso {
+  font-size: 36px;
+  font-weight: bold;
+  color: #2a804f;
+  margin-bottom: 20px;
+  
+}
+
+.texto-registro-exitoso {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  max-width: 500px;
+  font-family: sans-serif;
+}
+
+
 @media (max-width: 992px) {
   .image-form {
     width: 100%;
   }
 }
+
 
 /*
 .form-input {
