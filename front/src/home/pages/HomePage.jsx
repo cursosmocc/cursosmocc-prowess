@@ -71,7 +71,7 @@ export const HomePage = () => {
           </div>
 
           <div class="col-12  text-center  text-body titleC  text-black">
-            <p>PROWESS OFRECE CURSOS DE CAPACITACIÓN EN LAS SIGUENTES AREAS.</p>
+            <p>PROWESS OFRECE CURSOS DE CAPACITACIÓN EN LAS SIGUENTES AREA. XD</p>
           </div>
 
           <div class="col-12 col-md-4">
